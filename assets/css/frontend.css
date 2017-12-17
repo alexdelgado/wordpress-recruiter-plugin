@@ -1,0 +1,829 @@
+.clearfix {
+  zoom: 1;
+  /* For IE 6/7 (trigger hasLayout) */
+}
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+.clear {
+  clear: both;
+}
+.nobr {
+  white-space: nowrap;
+}
+/* Primary colour for buttons (alt) */
+/* Text on primary colour bg */
+/* Secondary buttons */
+/* Text on secondary colour bg */
+/* Prices, In stock labels, sales flash */
+/* Text on highlight colour bg */
+/* Content BG - Tabs (active state) */
+/* small, breadcrumbs etc */
+.display-icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'job-manager' !important;
+  text-decoration: none;
+  font-weight: normal;
+  font-style: normal;
+  vertical-align: top;
+  font-size: 16px;
+  margin: 0 3px 0 0;
+  *overflow: auto;
+  *zoom: 1;
+  *display: inline;
+}
+/* =Global styles/layout
+-------------------------------------------------------------- */
+.applying_for {
+  font-weight: bold;
+}
+.recruiter-data-row {
+  position: relative;
+  cursor: move;
+}
+.recruiter-data-row label {
+  cursor: move;
+}
+.recruiter-data-row .recruiter-remove-row {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 0;
+  margin: 0.5em -1.25em 0 0;
+  width: 1em;
+  padding: 1em 0 0 0;
+  overflow: hidden;
+  color: #ccc;
+}
+.recruiter-data-row .recruiter-remove-row:before {
+  content: 'x';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1em;
+  line-height: 1em;
+  text-align: center;
+}
+.recruiter-data-row .recruiter-remove-row:hover {
+  color: red;
+}
+.recruiter-data-row fieldset:last-child {
+  border-bottom: 4px solid #eee;
+}
+.company_preview {
+  padding: 0 1em 1em;
+  border: 5px solid #eee;
+}
+.company_preview_title,
+.entry-content .company_preview_title {
+  padding: .5em 1em;
+  vertical-align: middle;
+  position: relative;
+  background: #eee;
+}
+.company_preview_title h2,
+.entry-content .company_preview_title h2 {
+  margin: 0;
+  clear: none;
+}
+.company_preview_title .button,
+.entry-content .company_preview_title .button {
+  float: right;
+  margin-left: .25em;
+}
+.single-company .recruiter-experience,
+.single-company .recruiter-education {
+  padding: 0 0 0 1em;
+  margin: 0 0 1em;
+  border-top: 3px solid #eee;
+}
+.single-company .recruiter-experience h3,
+.single-company .recruiter-education h3 {
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+}
+.single-company .recruiter-experience h3:before,
+.single-company .recruiter-education h3:before {
+  display: block;
+  width: .75em;
+  height: .75em;
+  background: #eee;
+  content: "";
+  margin: 1em 0 0 -0.375em;
+  position: absolute;
+  left: -4px;
+  top: 0;
+  -moz-border-radius: .75em;
+  -webkit-border-radius: .75em;
+  border-radius: .75em;
+  border: 4px solid #fff;
+}
+.single-company .recruiter-experience dt,
+.single-company .recruiter-education dt,
+.single-company .recruiter-experience dd,
+.single-company .recruiter-education dd {
+  border-left: 2px solid #ddd;
+  padding: 0 0 0 1em;
+  margin: 0;
+}
+.single-company .recruiter-experience p,
+.single-company .recruiter-education p {
+  margin: 1em 0 0 0;
+}
+.single-company .recruiter-experience dt,
+.single-company .recruiter-education dt {
+  padding: 1em 0 0 1em;
+  position: relative;
+}
+.single-company .recruiter-experience dd,
+.single-company .recruiter-education dd {
+  overflow: hidden;
+}
+.single-company .recruiter-skills {
+  padding: 0;
+  margin: 0 0 1em;
+  list-style: none;
+}
+.single-company .recruiter-skills li {
+  margin: 0 0 .5em;
+  width: 50%;
+  padding: 0 0 0 1em;
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+}
+.single-company small.date {
+  color: #999;
+  font-size: .75em;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+.single-company .meta {
+  list-style: none outside;
+  padding: 0;
+  margin: 0 0 1.5em;
+  overflow: hidden;
+  zoom: 1;
+  clear: both;
+}
+.single-company .meta li {
+  margin: 0 .5em 0 0;
+  padding: .5em;
+  float: left;
+  line-height: 1em;
+  color: #999;
+}
+.single-company .meta li:first-child {
+  padding-left: 0;
+}
+.single-company .meta .company-category:before {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'job-manager' !important;
+  text-decoration: none;
+  font-weight: normal;
+  font-style: normal;
+  vertical-align: top;
+  font-size: 16px;
+  margin: 0 3px 0 0;
+  *overflow: auto;
+  *zoom: 1;
+  *display: inline;
+  content: '\e818';
+}
+.single-company .meta .company-title:before {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'job-manager' !important;
+  text-decoration: none;
+  font-weight: normal;
+  font-style: normal;
+  vertical-align: top;
+  font-size: 16px;
+  margin: 0 3px 0 0;
+  *overflow: auto;
+  *zoom: 1;
+  *display: inline;
+  content: '\e807';
+}
+.single-company .meta .date-posted:before {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'job-manager' !important;
+  text-decoration: none;
+  font-weight: normal;
+  font-style: normal;
+  vertical-align: top;
+  font-size: 16px;
+  margin: 0 3px 0 0;
+  *overflow: auto;
+  *zoom: 1;
+  *display: inline;
+  content: '\e80f';
+}
+.single-company .company_contact {
+  overflow: hidden;
+  zoom: 1;
+  padding-left: 20px;
+  margin: 0 0 1em;
+}
+.single-company .company_contact .company_contact_button,
+.single-company .company_contact .company_contact_details {
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+}
+.single-company .company_contact .company_contact_button {
+  text-align: center;
+  font-size: 1.2em;
+  line-height: 1em;
+  width: 33.3%;
+  float: left;
+  margin: 0 0 0 -20px;
+  padding: 0.83333333em;
+}
+.single-company .company_contact .company_contact_details {
+  float: right;
+  width: 66.6%;
+  border: 1px solid #eee;
+  padding: .75em 1em 0;
+  margin: 0;
+  line-height: 1.5em;
+  display: block;
+  position: relative;
+}
+.single-company .company_contact .company_contact_details p {
+  margin: 0 0 .75em;
+}
+.single-company .company_contact .company_contact_details:before {
+  content: "";
+  position: absolute;
+  margin: 0 0 0 -10px;
+  left: 0;
+  top: 1em;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid #eee;
+}
+.single-company .company_contact .company_contact_details:after {
+  content: "";
+  position: absolute;
+  margin: 1px 0 0 -9px;
+  top: 1em;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+  border-right: 9px solid #fff;
+}
+.single-company .company-aside {
+  position: relative;
+  border: 1px solid #eee;
+  padding: 1em;
+  margin: 0 0 2em;
+  display: block;
+  clear: both;
+  min-height: 3em;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+.single-company .company-aside img {
+  width: 3em;
+  height: 3em;
+  position: absolute;
+  left: 1em;
+  float: left;
+  vertical-align: middle;
+  box-shadow: none;
+}
+.single-company .company-aside .job-title {
+  display: block;
+  margin: 0;
+  padding: 0 0 0 4em;
+  font-weight: bold;
+  line-height: 1.5em;
+}
+.single-company .company-aside .job-title:before {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'job-manager' !important;
+  text-decoration: none;
+  font-weight: normal;
+  font-style: normal;
+  vertical-align: top;
+  font-size: 16px;
+  margin: 0 3px 0 0;
+  *overflow: auto;
+  *zoom: 1;
+  *display: inline;
+  content: '\e807';
+}
+.single-company .company-aside .location {
+  display: block;
+  margin: 0;
+  padding: 0 0 0 4em;
+  line-height: 1.5em;
+  color: #999;
+}
+.single-company .company-aside .location a:before {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'job-manager' !important;
+  text-decoration: none;
+  font-weight: normal;
+  font-style: normal;
+  vertical-align: top;
+  font-size: 16px;
+  margin: 0 3px 0 0;
+  *overflow: auto;
+  *zoom: 1;
+  *display: inline;
+  content: '\e81d';
+}
+.single-company .company-aside .candidate-video {
+  border-top: 1px solid #eee;
+  padding: 1em 0 0;
+  margin: 1em 0 0 0;
+}
+.single-company .company-aside .candidate-video iframe {
+  margin: 0;
+  display: block;
+}
+.single-company .company-aside .company-links {
+  line-height: 1.5em;
+  list-style: none outside;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  zoom: 1;
+  float: right;
+  max-width: 50%;
+}
+.single-company .company-aside .company-links li {
+  margin: 0 0 0 1em;
+  padding: 0;
+  float: right;
+}
+.single-company .company-aside .company-links .company-link a:before {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'job-manager' !important;
+  text-decoration: none;
+  font-weight: normal;
+  font-style: normal;
+  vertical-align: top;
+  font-size: 16px;
+  margin: 0 3px 0 0;
+  *overflow: auto;
+  *zoom: 1;
+  *display: inline;
+  content: '\e809';
+}
+.single-company .company-aside .company-links .company-file a:before {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'job-manager' !important;
+  text-decoration: none;
+  font-weight: normal;
+  font-style: normal;
+  vertical-align: top;
+  font-size: 16px;
+  margin: 0 3px 0 0;
+  *overflow: auto;
+  *zoom: 1;
+  *display: inline;
+  content: '\e81b';
+}
+.single-company .company-aside .company-links .company-link-twitter a:before {
+  content: '\e80a';
+}
+.single-company .company-aside .company-links .company-link-linkedin a:before {
+  content: '\e80b';
+}
+.single-company .company-aside .company-links .company-link-github a:before {
+  content: '\e810';
+}
+.single-company .company-aside .company-links .company-link-dribbble a:before {
+  content: '\e811';
+}
+.single-company .company-aside .company-links .company-link-facebook a:before {
+  content: '\e80c';
+}
+.single-company .company-aside .company-links .company-link-wordpress a:before {
+  content: '\e812';
+}
+.single-company .company-aside .company-links .company-link-google a:before {
+  content: '\e813';
+}
+.single-company .company-aside .company-links .company-link-pinterest a:before {
+  content: '\e814';
+}
+.single-company .company-aside .company-links .company-link-flickr a:before {
+  content: '\e815';
+}
+.single-company .company-aside .company-links .company-link-instagram a:before {
+  content: '\e816';
+}
+.single-company .company-aside .company-links .company-link-skype a:before {
+  content: '\e817';
+}
+#recruiter-candidate-dashboard table td {
+  vertical-align: top;
+}
+#recruiter-candidate-dashboard table td small {
+  font-size: 0.92em;
+  color: #999;
+  display: block;
+}
+#recruiter-candidate-dashboard table ul.candidate-dashboard-actions {
+  margin: 0;
+  padding: 0;
+  visibility: hidden;
+  font-size: 0.92em;
+}
+#recruiter-candidate-dashboard table ul.candidate-dashboard-actions li {
+  float: none;
+  display: inline;
+  padding: 0;
+  margin: 0 .5em 0 0;
+  font-weight: normal;
+  list-style: none outside;
+}
+#recruiter-candidate-dashboard table ul.candidate-dashboard-actions li:after {
+  padding: 0 0 0 .5em;
+  content: "\2023";
+}
+#recruiter-candidate-dashboard table ul.candidate-dashboard-actions li:last-child:after {
+  content: '';
+}
+#recruiter-candidate-dashboard table ul.candidate-dashboard-actions li .candidate-dashboard-action-delete {
+  color: red;
+}
+#recruiter-candidate-dashboard table tr:hover ul.candidate-dashboard-actions,
+#recruiter-candidate-dashboard table tr:focus ul.candidate-dashboard-actions {
+  visibility: visible;
+}
+.company_filters {
+  background: #eee;
+  zoom: 1;
+  /* For IE 6/7 (trigger hasLayout) */
+}
+.company_filters:before,
+.company_filters:after {
+  content: "";
+  display: table;
+}
+.company_filters:after {
+  clear: both;
+}
+.company_filters .search_companies {
+  padding: 1em;
+  zoom: 1;
+  /* For IE 6/7 (trigger hasLayout) */
+}
+.company_filters .search_companies:before,
+.company_filters .search_companies:after {
+  content: "";
+  display: table;
+}
+.company_filters .search_companies:after {
+  clear: both;
+}
+.company_filters .search_companies div.company-filter {
+  width: 50%;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+}
+.company_filters .search_companies div.company-filter label {
+  display: none;
+}
+.company_filters .search_companies div.company-filter.search_keywords,
+.company_filters .search_companies div.company-filter.filter_first {
+  float: left;
+  padding-right: .5em;
+}
+.company_filters .search_companies div.company-filter.search_location,
+.company_filters .search_companies div.company-filter.filter_last {
+  float: right;
+  padding-left: .5em;
+}
+.company_filters .search_companies div.company-filter.search_categories,
+.company_filters .search_companies div.company-filter.filter_wide {
+  padding-top: .5em;
+  clear: both;
+  width: 100%;
+}
+.company_filters .search_companies div.company-filter input,
+.company_filters .search_companies div.company-filter select {
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+  width: 100%;
+}
+.company_filters .company_types {
+  list-style: none outside;
+  margin: 0;
+  padding: 0;
+  font-size: 0.83em;
+  background: #f9f9f9;
+  border-top: 1px solid #e5e5e5;
+  zoom: 1;
+  /* For IE 6/7 (trigger hasLayout) */
+}
+.company_filters .company_types:before,
+.company_filters .company_types:after {
+  content: "";
+  display: table;
+}
+.company_filters .company_types:after {
+  clear: both;
+}
+.company_filters .company_types li {
+  margin: 0;
+  padding: .5em 1em;
+  float: left;
+  border-right: 1px solid #eee;
+}
+.company_filters .company_types li:last-child {
+  border-right: 0;
+}
+.company_filters .showing_companies {
+  padding: .5em 1em;
+  display: none;
+  font-size: 0.83em;
+  background: #f9f9f9;
+  border-top: 1px solid #e5e5e5;
+}
+.company_filters .showing_companies a {
+  float: right;
+  padding-left: 10px;
+}
+div.companies .job-manager-pagination {
+  text-align: center;
+  display: block;
+  padding: 1em 0 1em 0;
+  border-bottom: 1px solid #eee;
+  line-height: 1;
+}
+div.companies .load_more_companies {
+  text-align: center;
+  display: block;
+  padding: 1em 1em 1em 2em;
+  border-bottom: 1px solid #eee;
+  font-weight: bold;
+}
+div.companies .load_more_companies.loading {
+  background: url(../images/ajax-loader.gif) no-repeat center;
+}
+div.companies .load_more_companies.loading strong {
+  visibility: hidden;
+}
+div.companies .load_more_companies:hover,
+div.companies .load_more_companies:focus {
+  background-color: #fcfcfc;
+}
+div.companies {
+  margin-bottom: 1em;
+}
+div.companies ul.companies {
+  margin: 20px 0 0 0;
+}
+ul.companies {
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid #eee;
+}
+ul.companies.loading {
+  min-height: 96px;
+  border-bottom: 1px solid #eee;
+  background: url(../images/ajax-loader.gif) no-repeat center 32px;
+}
+ul.companies li.company,
+ul.companies li.no_companies_found {
+  list-style: none outside;
+  padding: 0;
+  margin: 0;
+  border-bottom: 1px solid #eee;
+}
+ul.companies li.company.no_companies_found,
+ul.companies li.no_companies_found.no_companies_found {
+  padding: 1em;
+  border-bottom: 1px solid #eee;
+}
+ul.companies li.company a,
+ul.companies li.no_companies_found a {
+  display: block;
+  padding: 1em 1em 1em 2em;
+  overflow: hidden;
+  zoom: 1;
+  position: relative;
+  line-height: 1.5em;
+  font-size: 1em;
+  text-decoration: none;
+}
+ul.companies li.company a:hover,
+ul.companies li.no_companies_found a:hover,
+ul.companies li.company a:focus,
+ul.companies li.no_companies_found a:focus {
+  background-color: #fcfcfc;
+}
+ul.companies li.company a img,
+ul.companies li.no_companies_found a img {
+  vertical-align: middle;
+  box-shadow: none;
+}
+ul.companies li.company a div.candidate-column,
+ul.companies li.no_companies_found a div.candidate-column,
+ul.companies li.company a div.location-column,
+ul.companies li.no_companies_found a div.location-column,
+ul.companies li.company a .company-posted-column,
+ul.companies li.no_companies_found a .company-posted-column {
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+}
+ul.companies li.company a div.candidate-column,
+ul.companies li.no_companies_found a div.candidate-column {
+  float: left;
+  width: 50%;
+  padding: 0 1em 0 42px;
+  line-height: 1.5em;
+}
+ul.companies li.company a div.candidate-column h3,
+ul.companies li.no_companies_found a div.candidate-column h3 {
+  margin: 0;
+  padding: 0;
+  font-size: 1em;
+  line-height: 1.5em;
+}
+ul.companies li.company a div.candidate-column .candidate-title,
+ul.companies li.no_companies_found a div.candidate-column .candidate-title {
+  color: #999;
+}
+ul.companies li.company a div.candidate-column .candidate-title .tagline,
+ul.companies li.no_companies_found a div.candidate-column .candidate-title .tagline {
+  margin-left: .5em;
+}
+ul.companies li.company a .candidate-location-column,
+ul.companies li.no_companies_found a .candidate-location-column {
+  float: left;
+  text-align: left;
+  width: 25%;
+  padding: 0;
+  color: #999;
+  line-height: 1.5em;
+  position: relative;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+}
+ul.companies li.company a .company-posted-column,
+ul.companies li.no_companies_found a .company-posted-column {
+  float: right;
+  text-align: right;
+  width: 25%;
+  padding: 0;
+  margin: 0;
+  color: #999;
+  line-height: 1.5em;
+  position: relative;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+}
+ul.companies li.company a .company-meta,
+ul.companies li.no_companies_found a .company-meta {
+  line-height: 2.03em;
+}
+ul.companies li.company a .company-category:before,
+ul.companies li.no_companies_found a .company-category:before {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'job-manager' !important;
+  text-decoration: none;
+  font-weight: normal;
+  font-style: normal;
+  vertical-align: top;
+  font-size: 16px;
+  margin: 0 3px 0 0;
+  *overflow: auto;
+  *zoom: 1;
+  *display: inline;
+  content: '\e818';
+}
+ul.companies li.company.company_featured a,
+ul.companies li.no_companies_found.company_featured a {
+  background: #fefee5;
+}
+ul.companies li.company.company_featured a:hover,
+ul.companies li.no_companies_found.company_featured a:hover,
+ul.companies li.company.company_featured a:focus,
+ul.companies li.no_companies_found.company_featured a:focus {
+  background-color: #fefed8;
+}
+.apply_with_company label {
+  display: block;
+}
+.apply_with_company select {
+  width: 50%;
+}
+.apply_with_company textarea {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+}
+.widget ul.companies li.company a {
+  padding: 1em 0;
+}
+.widget ul.companies li.company .candidate {
+  float: none;
+  width: auto;
+  padding: 0;
+}
+.widget ul.companies li.company .candidate h3 {
+  margin: 0;
+  padding: 0;
+}
+.widget ul.companies li.company ul.meta {
+  float: none;
+  width: auto;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+.widget ul.companies li.company ul.meta li {
+  float: none;
+  display: inline;
+  padding: 0;
+  margin: 0 .5em 0 0;
+  font-weight: normal;
+}
+.widget ul.companies li.company ul.meta li:after {
+  padding: 0 0 0 .5em;
+  content: "\2023";
+}
+.widget ul.companies li.company ul.meta li:last-child:after {
+  content: '';
+}
+.twenty-eleven ul.companies li.companies,
+.twenty-eleven ul.companies li.no_companies_found {
+  padding: 0 !important;
+}
+.twenty-ten .chosen-choices {
+  margin: 0 !important;
+}

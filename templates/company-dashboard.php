@@ -1,0 +1,106 @@
+<?php
+$submission_limit            = get_option( 'recruiter_submission_limit' );
+$submit_company_form_page_id = get_option( 'recruiter_submit_company_form_page_id' );
+?>
+<div id="recruiter-company-dashboard">
+	<p><?php echo _n( 'Your company can be viewed, edited or removed below.', 'Your companies can be viewed, edited or removed below.', recruiter_count_user_companies(), 'wp-job-manager-recruiter' ); ?></p>
+	<table class="recruiter-companies">
+		<thead>
+			<tr>
+				<?php foreach ( $company_dashboard_columns as $key => $column ) : ?>
+					<th class="<?php echo esc_attr( $key ); ?>"><?php echo esc_html( $column ); ?></th>
+				<?php endforeach; ?>
+			</tr>
+		</thead>
+		<tbody>
+			<?php if ( ! $companies ) : ?>
+				<tr>
+					<td colspan="<?php echo sizeof( $company_dashboard_columns ); ?>"><?php _e( 'You do not have any active company listings.', 'wp-job-manager-recruiter' ); ?></td>
+				</tr>
+			<?php else : ?>
+				<?php foreach ( $companies as $company ) : ?>
+					<tr>
+						<?php foreach ( $company_dashboard_columns as $key => $column ) : ?>
+							<td class="<?php echo esc_attr( $key ); ?>">
+								<?php if ( 'company-title' === $key ) : ?>
+									<?php if ( $company->post_status == 'publish' ) : ?>
+										<a href="<?php echo get_permalink( $company->ID ); ?>"><?php echo esc_html( $company->post_title ); ?></a>
+									<?php else : ?>
+										<?php echo esc_html( $company->post_title ); ?> <small>(<?php the_company_status( $company ); ?>)</small>
+									<?php endif; ?>
+									<ul class="company-dashboard-actions">
+										<?php
+											$actions = array();
+
+											switch ( $company->post_status ) {
+
+												case 'publish' :
+													$actions['edit'] = array( 'label' => __( 'Edit', 'wp-job-manager-recruiter' ), 'nonce' => false );
+													$actions['hide'] = array( 'label' => __( 'Hide', 'wp-job-manager-recruiter' ), 'nonce' => true );
+													break;
+
+												case 'hidden' :
+													$actions['edit'] = array( 'label' => __( 'Edit', 'wp-job-manager-recruiter' ), 'nonce' => false );
+													$actions['publish'] = array( 'label' => __( 'Publish', 'wp-job-manager-recruiter' ), 'nonce' => true );
+													break;
+
+												case 'pending' :
+													if ( get_option( 'recruiter_can_user_edit_pending_submissions' ) ) {
+														$actions['edit'] = array( 'label' => __( 'Edit', 'wp-job-manager-recruiter' ), 'nonce' => false );
+													}
+													break;
+
+												case 'expired' :
+													if ( get_option( 'recruiter_submit_company_form_page_id' ) ) {
+														$actions['relist'] = array( 'label' => __( 'Relist', 'wp-job-manager-recruiter' ), 'nonce' => true );
+													}
+													break;
+											}
+
+											$actions['delete'] = array( 'label' => __( 'Delete', 'wp-job-manager-recruiter' ), 'nonce' => true );
+
+											$actions = apply_filters( 'recruiter_my_company_actions', $actions, $company );
+
+											foreach ( $actions as $action => $value ) {
+
+												$action_url = add_query_arg( array( 'action' => $action, 'company_id' => $company->ID ) );
+
+												if ( $value['nonce'] ) {
+													$action_url = wp_nonce_url( $action_url, 'recruiter_my_company_actions' );
+												}
+
+												echo '<li><a href="' . $action_url . '" class="company-dashboard-action-' . $action . '">' . $value['label'] . '</a></li>';
+											}
+										?>
+									</ul>
+								<?php elseif ( 'company-title' === $key ) : ?>
+									<?php the_company_title( '', '', true, $company ); ?>
+								<?php elseif ( 'company-location' === $key ) : ?>
+									<?php the_company_location( false, $company ); ?></td>
+								<?php elseif ( 'company-category' === $key ) : ?>
+									<?php the_company_category( $company ); ?>
+								<?php elseif ( 'status' === $key ) : ?>
+									<?php the_company_status( $company ); ?>
+								<?php elseif ( 'date' === $key ) : ?>
+									<?php echo date_i18n( get_option( 'date_format' ), strtotime( $company->post_date ) ); ?>
+								<?php else : ?>
+									<?php do_action( 'recruiter_company_dashboard_column_' . $key, $company ); ?>
+								<?php endif; ?>
+							</td>
+						<?php endforeach; ?>
+					</tr>
+				<?php endforeach; ?>
+			<?php endif; ?>
+		</tbody>
+		<?php if ( $submit_company_form_page_id && ( recruiter_count_user_companies() < $submission_limit || ! $submission_limit ) ) : ?>
+			<tfoot>
+				<tr>
+					<td colspan="<?php echo sizeof( $company_dashboard_columns ); ?>">
+						<a href="<?php echo esc_url( get_permalink( $submit_company_form_page_id ) ); ?>"><?php _e( 'Add Company', 'wp-job-manager-recruiter' ); ?></a>
+					</td>
+				</tr>
+			</tfoot>
+		<?php endif; ?>
+	</table>
+	<?php get_job_manager_template( 'pagination.php', array( 'max_num_pages' => $max_num_pages ) ); ?>
+</div>
